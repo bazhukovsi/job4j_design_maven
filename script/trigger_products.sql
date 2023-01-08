@@ -46,8 +46,8 @@ create or replace function history_insert_trigger_fnc()
   returns trigger AS
 $$
 begin
- insert into "history_price" ( "name","price","date")
-values (NEW."name",NEW."price",NEW."date");
+ insert into history_of_price ("name","price","date")
+values (NEW."name",NEW."price", now());
 return new;
 end;
 $$
@@ -55,6 +55,6 @@ language 'plpgsql';
 
 create trigger history_insert_trigger
   after insert
-  on "products"
+  on products
   for each row
   execute procedure history_insert_trigger_fnc();
