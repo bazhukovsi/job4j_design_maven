@@ -42,20 +42,19 @@ execute procedure tax();
 
 insert into products (name, producer, count, price) VALUES ('product_8', 'producer_8', 22, 110);
 
-create or replace function history_write()
-    returns trigger as
+create or replace function history_insert_trigger_fnc()
+  returns trigger AS
 $$
-    BEGIN
-        insert history_of_price
-        (name, price, date) values
-        ('products', 12.88, '2023-01-01 00:00:01');
-         return NEW;
-    END;
+begin
+ insert into "history_price" ( "name","price","date")
+values (NEW."name",NEW."price",NEW."date");
+return new;
+end;
 $$
-LANGUAGE 'plpgsql';
+language 'plpgsql';
 
-create trigger history_price
-    after insert
-    on products
-    for each row
-    execute procedure history_write();
+create trigger history_insert_trigger
+  after insert
+  on "products"
+  for each row
+  execute procedure history_insert_trigger_fnc();
