@@ -90,3 +90,4 @@ insert into products (name, producer, count, price) VALUES ('product_11', 'produ
 insert into products (name, producer, count, price) VALUES ('product_12', 'producer_12', 20, 120);
 insert into products (name, producer, count, price) VALUES ('product_13', 'producer_13', 30, 130);
 select * from history_of_price;
+
