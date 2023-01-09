@@ -25,7 +25,7 @@ create or replace function tax()
 $$
 BEGIN
     update products
-    set price = price + price * 0.2;
+    set price = price + price * 0.2
     where id = (select id from inserted);
     return new;
 END;
