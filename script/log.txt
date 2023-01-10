@@ -1,0 +1,76 @@
+products.public> create table products (
+                                           id serial primary key,
+                                           name varchar(50),
+                                           producer varchar(50),
+                                           count integer default 0,
+                                           price integer
+                 )
+products.public> delete from products
+[2023-01-10 13:46:52] 6 rows affected in 2 ms
+products.public> ALTER SEQUENCE products_id_seq RESTART WITH 1
+[2023-01-10 13:46:52] completed in 3 ms
+products.public> insert into products (name, producer, count, price) VALUES ('product_1', 'producer_1', 3, 50)
+[2023-01-10 13:46:52] 1 row affected in 2 ms
+products.public> insert into products (name, producer, count, price) VALUES ('product_2', 'producer_2', 15, 32)
+[2023-01-10 13:46:52] 1 row affected in 0 ms
+products.public> insert into products (name, producer, count, price) VALUES ('product_3', 'producer_3', 8, 115)
+[2023-01-10 13:46:52] 1 row affected in 1 ms
+products.public> select * from products
+[2023-01-10 13:46:52] 3 rows retrieved starting from 1 in 78 ms (execution: 4 ms, fetching: 74 ms)
+products.public> begin transaction
+[2023-01-10 13:46:52] completed in 1 ms
+products.public> insert into products (name, producer, count, price) VALUES ('product_4', 'producer_4', 11, 64)
+[2023-01-10 13:46:52] 1 row affected in 2 ms
+products.public> commit
+[2023-01-10 13:46:52] completed in 1 ms
+products.public> select * from products
+[2023-01-10 13:46:52] 4 rows retrieved starting from 1 in 46 ms (execution: 3 ms, fetching: 43 ms)
+products.public> begin transaction
+[2023-01-10 13:46:52] completed in 1 ms
+products.public> delete from products
+[2023-01-10 13:46:52] 4 rows affected in 2 ms
+products.public> drop table products
+[2023-01-10 13:46:52] completed in 2 ms
+products.public> rollback transaction
+[2023-01-10 13:46:52] completed in 0 ms
+products.public> commit
+[2023-01-10 13:46:52] [25P01] нет незавершённой транзакции
+[2023-01-10 13:46:52] completed in 3 ms
+products.public> select * from products
+[2023-01-10 13:46:52] 4 rows retrieved starting from 1 in 54 ms (execution: 2 ms, fetching: 52 ms)
+products.public> begin transaction
+[2023-01-10 13:46:52] completed in 1 ms
+products.public> insert into products (name, producer, count, price) VALUES ('product_5', 'producer_5', 17, 45)
+[2023-01-10 13:46:53] 1 row affected in 1 ms
+products.public> select * from products
+[2023-01-10 13:46:53] 5 rows retrieved starting from 1 in 50 ms (execution: 2 ms, fetching: 48 ms)
+products.public> savepoint first_savepoint
+[2023-01-10 13:46:53] completed in 1 ms
+products.public> delete from products where price = 115
+[2023-01-10 13:46:53] 1 row affected in 1 ms
+products.public> update products set price = 75 where name = 'product_1'
+[2023-01-10 13:46:53] 1 row affected in 1 ms
+products.public> select * from products
+[2023-01-10 13:46:53] 4 rows retrieved starting from 1 in 32 ms (execution: 3 ms, fetching: 29 ms)
+products.public> rollback to first_savepoint
+[2023-01-10 13:46:53] completed in 2 ms
+products.public> select * from products
+[2023-01-10 13:46:53] 5 rows retrieved starting from 1 in 58 ms (execution: 3 ms, fetching: 55 ms)
+products.public> insert into products (name, producer, count, price) VALUES ('A', 'Cherkizpvo', 50, 50)
+[2023-01-10 13:46:53] 1 row affected in 2 ms
+products.public> insert into products (name, producer, count, price) VALUES ('B', 'ASUS', 1, 2)
+[2023-01-10 13:46:53] 1 row affected in 1 ms
+products.public> savepoint second_savepoint
+[2023-01-10 13:46:53] completed in 1 ms
+products.public> delete from products where producer = 'ASUS'
+[2023-01-10 13:46:53] 1 row affected in 1 ms
+products.public> delete from products where producer = 'Cherkizovo'
+[2023-01-10 13:46:53] completed in 2 ms
+products.public> rollback to second_savepoint
+[2023-01-10 13:46:53] completed in 1 ms
+products.public> delete from products where producer = 'ASUS'
+[2023-01-10 13:46:53] 1 row affected in 1 ms
+products.public> commit
+[2023-01-10 13:46:53] completed in 1 ms
+products.public> select * from products
+[2023-01-10 13:46:53] 6 rows retrieved starting from 1 in 62 ms (execution: 3 ms, fetching: 59 ms)
