@@ -1,3 +1,4 @@
+[2023-01-10 14:41:03] Connected
 products.public> create table products (
                                            id serial primary key,
                                            name varchar(50),
@@ -6,71 +7,64 @@ products.public> create table products (
                                            price integer
                  )
 products.public> delete from products
-[2023-01-10 13:46:52] 6 rows affected in 2 ms
+[2023-01-10 14:41:09] 20 rows affected in 0 ms
 products.public> ALTER SEQUENCE products_id_seq RESTART WITH 1
-[2023-01-10 13:46:52] completed in 3 ms
-products.public> insert into products (name, producer, count, price) VALUES ('product_1', 'producer_1', 3, 50)
-[2023-01-10 13:46:52] 1 row affected in 2 ms
-products.public> insert into products (name, producer, count, price) VALUES ('product_2', 'producer_2', 15, 32)
-[2023-01-10 13:46:52] 1 row affected in 0 ms
-products.public> insert into products (name, producer, count, price) VALUES ('product_3', 'producer_3', 8, 115)
-[2023-01-10 13:46:52] 1 row affected in 1 ms
-products.public> select * from products
-[2023-01-10 13:46:52] 3 rows retrieved starting from 1 in 78 ms (execution: 4 ms, fetching: 74 ms)
+[2023-01-10 14:41:09] completed in 0 ms
+products.public> insert into products (name, count, price) VALUES ('product_1', 1, 5)
+[2023-01-10 14:41:10] 1 row affected in 0 ms
+products.public> insert into products (name, count, price) VALUES ('product_2', 2, 10)
+[2023-01-10 14:41:10] 1 row affected in 0 ms
+products.public> insert into products (name, count, price) VALUES ('product_3', 3, 15)
+[2023-01-10 14:41:10] 1 row affected in 0 ms
+products.public> insert into products (name, count, price) VALUES ('product_4', 4, 20)
+[2023-01-10 14:41:10] 1 row affected in 0 ms
+products.public> insert into products (name, count, price) VALUES ('product_5', 5, 25)
+[2023-01-10 14:41:10] 1 row affected in 0 ms
+products.public> insert into products (name, count, price) VALUES ('product_6', 6, 30)
+[2023-01-10 14:41:10] 1 row affected in 0 ms
+products.public> insert into products (name, count, price) VALUES ('product_7', 7, 35)
+[2023-01-10 14:41:10] 1 row affected in 16 ms
+products.public> insert into products (name, count, price) VALUES ('product_8', 8, 40)
+[2023-01-10 14:41:10] 1 row affected in 0 ms
+products.public> insert into products (name, count, price) VALUES ('product_9', 9, 45)
+[2023-01-10 14:41:10] 1 row affected in 0 ms
+products.public> insert into products (name, count, price) VALUES ('product_10', 10, 50)
+[2023-01-10 14:41:10] 1 row affected in 0 ms
+products.public> insert into products (name, count, price) VALUES ('product_11', 11, 55)
+[2023-01-10 14:41:10] 1 row affected in 0 ms
+products.public> insert into products (name, count, price) VALUES ('product_12', 12, 60)
+[2023-01-10 14:41:10] 1 row affected in 0 ms
+products.public> insert into products (name, count, price) VALUES ('product_13', 13, 65)
+[2023-01-10 14:41:10] 1 row affected in 0 ms
+products.public> insert into products (name, count, price) VALUES ('product_14', 14, 70)
+[2023-01-10 14:41:10] 1 row affected in 15 ms
+products.public> insert into products (name, count, price) VALUES ('product_15', 15, 75)
+[2023-01-10 14:41:10] 1 row affected in 0 ms
+products.public> insert into products (name, count, price) VALUES ('product_16', 16, 80)
+[2023-01-10 14:41:10] 1 row affected in 0 ms
+products.public> insert into products (name, count, price) VALUES ('product_17', 17, 85)
+[2023-01-10 14:41:10] 1 row affected in 0 ms
+products.public> insert into products (name, count, price) VALUES ('product_18', 18, 90)
+[2023-01-10 14:41:10] 1 row affected in 0 ms
+products.public> insert into products (name, count, price) VALUES ('product_19', 19, 95)
+[2023-01-10 14:41:10] 1 row affected in 15 ms
+products.public> insert into products (name, count, price) VALUES ('product_20', 20, 100)
+[2023-01-10 14:41:10] 1 row affected in 0 ms
 products.public> begin transaction
-[2023-01-10 13:46:52] completed in 1 ms
-products.public> insert into products (name, producer, count, price) VALUES ('product_4', 'producer_4', 11, 64)
-[2023-01-10 13:46:52] 1 row affected in 2 ms
-products.public> commit
-[2023-01-10 13:46:52] completed in 1 ms
-products.public> select * from products
-[2023-01-10 13:46:52] 4 rows retrieved starting from 1 in 46 ms (execution: 3 ms, fetching: 43 ms)
-products.public> begin transaction
-[2023-01-10 13:46:52] completed in 1 ms
-products.public> delete from products
-[2023-01-10 13:46:52] 4 rows affected in 2 ms
-products.public> drop table products
-[2023-01-10 13:46:52] completed in 2 ms
-products.public> rollback transaction
-[2023-01-10 13:46:52] completed in 0 ms
-products.public> commit
-[2023-01-10 13:46:52] [25P01] нет незавершённой транзакции
-[2023-01-10 13:46:52] completed in 3 ms
-products.public> select * from products
-[2023-01-10 13:46:52] 4 rows retrieved starting from 1 in 54 ms (execution: 2 ms, fetching: 52 ms)
-products.public> begin transaction
-[2023-01-10 13:46:52] completed in 1 ms
-products.public> insert into products (name, producer, count, price) VALUES ('product_5', 'producer_5', 17, 45)
-[2023-01-10 13:46:53] 1 row affected in 1 ms
-products.public> select * from products
-[2023-01-10 13:46:53] 5 rows retrieved starting from 1 in 50 ms (execution: 2 ms, fetching: 48 ms)
-products.public> savepoint first_savepoint
-[2023-01-10 13:46:53] completed in 1 ms
-products.public> delete from products where price = 115
-[2023-01-10 13:46:53] 1 row affected in 1 ms
-products.public> update products set price = 75 where name = 'product_1'
-[2023-01-10 13:46:53] 1 row affected in 1 ms
-products.public> select * from products
-[2023-01-10 13:46:53] 4 rows retrieved starting from 1 in 32 ms (execution: 3 ms, fetching: 29 ms)
-products.public> rollback to first_savepoint
-[2023-01-10 13:46:53] completed in 2 ms
-products.public> select * from products
-[2023-01-10 13:46:53] 5 rows retrieved starting from 1 in 58 ms (execution: 3 ms, fetching: 55 ms)
-products.public> insert into products (name, producer, count, price) VALUES ('A', 'Cherkizpvo', 50, 50)
-[2023-01-10 13:46:53] 1 row affected in 2 ms
-products.public> insert into products (name, producer, count, price) VALUES ('B', 'ASUS', 1, 2)
-[2023-01-10 13:46:53] 1 row affected in 1 ms
-products.public> savepoint second_savepoint
-[2023-01-10 13:46:53] completed in 1 ms
-products.public> delete from products where producer = 'ASUS'
-[2023-01-10 13:46:53] 1 row affected in 1 ms
-products.public> delete from products where producer = 'Cherkizovo'
-[2023-01-10 13:46:53] completed in 2 ms
-products.public> rollback to second_savepoint
-[2023-01-10 13:46:53] completed in 1 ms
-products.public> delete from products where producer = 'ASUS'
-[2023-01-10 13:46:53] 1 row affected in 1 ms
-products.public> commit
-[2023-01-10 13:46:53] completed in 1 ms
-products.public> select * from products
-[2023-01-10 13:46:53] 6 rows retrieved starting from 1 in 62 ms (execution: 3 ms, fetching: 59 ms)
+[2023-01-10 14:41:10] completed in 0 ms
+products.public> DECLARE
+                     cursor_products SCROLL cursor for
+                     select * from products
+[2023-01-10 14:41:10] completed in 0 ms
+products.public> fetch last FROM cursor_products
+[2023-01-10 14:41:10] 1 row retrieved starting from 1 in 94 ms (execution: 0 ms, fetching: 94 ms)
+products.public> fetch backward 5 from cursor_products
+[2023-01-10 14:41:10] 5 rows retrieved starting from 1 in 109 ms (execution: 0 ms, fetching: 109 ms)
+products.public> move backward 8 from cursor_products
+[2023-01-10 14:41:10] 8 rows affected in 16 ms
+products.public> fetch backward 5 from cursor_products
+[2023-01-10 14:41:10] 5 rows retrieved starting from 1 in 109 ms (execution: 0 ms, fetching: 109 ms)
+products.public> move backward 1 from cursor_products
+[2023-01-10 14:41:10] 1 row affected in 0 ms
+products.public> commit transaction
+[2023-01-10 14:41:10] completed in 0 ms
