@@ -38,6 +38,10 @@ select title from book;
 
 -- все уникальные
 
-select name from movie
-union
-select title from book;
+(select title from book
+ except
+select name from movie)
+union all
+(select name from movie
+except
+select title from book)
