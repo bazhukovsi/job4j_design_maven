@@ -48,7 +48,7 @@ fetch backward 5 from cursor_products;
 move backward 8 from cursor_products;
 fetch backward 5 from cursor_products;
 move backward 1 from cursor_products;
-
+CLOSE cursor_products;
 -- закроем транзакцию
 
 commit transaction ;
