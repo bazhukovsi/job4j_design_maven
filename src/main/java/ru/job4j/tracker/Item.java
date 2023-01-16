@@ -1,11 +1,18 @@
 package ru.job4j.tracker;
 
-import lombok.Data;
+import lombok.*;
+
 import java.time.LocalDateTime;
 
-@Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@RequiredArgsConstructor
 public class Item  {
+    @Getter
+    @EqualsAndHashCode.Include
+    @NonNull
     private int id;
+    @Getter
+    @Setter
     private String name;
     private LocalDateTime created = LocalDateTime.now();
 }
